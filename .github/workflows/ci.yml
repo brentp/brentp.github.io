@@ -1,0 +1,50 @@
+name: ci
+on:
+  push:
+    branches: [master, main, dev]
+    tags: ["v*"]
+permissions:
+  contents: write
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Configure Git Credentials
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+      - uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
+      - uses: actions/cache@v4
+        with:
+          key: mkdocs-material-${{ env.cache_id }}
+          path: .cache
+          restore-keys: |
+            mkdocs-material-
+      - run: pip install mkdocs-material mike
+      - name: Deploy documentation
+        run: |
+          if [[ $GITHUB_REF == refs/tags/* ]]; then
+            VERSION=${GITHUB_REF#refs/tags/}
+            VERSION=${VERSION#v}
+            echo "Deploying version: $VERSION"
+            mike delete --push latest || true
+            mike deploy --push --update-aliases $VERSION latest
+            mike set-default --push latest
+          elif [[ $GITHUB_REF == refs/heads/dev ]]; then
+            echo "Deploying dev branch to drafts"
+            # Create temporary mkdocs config for dev branch
+            cp mkdocs.yml mkdocs.dev.yml
+            # Update the nav to include drafts
+            sed -i '/Blog:/a\    - Drafts: drafts/index.md' mkdocs.dev.yml
+            # Build with dev config
+            mike deploy --push --config-file mkdocs.dev.yml dev
+          else
+            echo "Deploying main branch"
+            mike deploy --push latest
+          fi
