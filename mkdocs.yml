@@ -4,9 +4,9 @@ site_author: Brent Pedersen
 site_url: https://brentp.github.io/
 
 # Repository
-repo_name: yourusername/yourrepo
-repo_url: https://github.com/yourusername/yourrepo
-edit_uri: ""
+#repo_name: yourusername/yourrepo
+#repo_url: https://github.com/yourusername/yourrepo
+#edit_uri: ""
 
 # Theme
 theme:
@@ -78,8 +78,8 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.magiclink:
       repo_url_shorthand: true
-      user: yourusername
-      repo: yourrepo
+      #user: yourusername
+      #repo: yourrepo
   - pymdownx.mark
   - pymdownx.smartsymbols
   - pymdownx.superfences:

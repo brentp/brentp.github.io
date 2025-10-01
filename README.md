@@ -75,13 +75,22 @@ Add draft posts to the `docs/drafts/` directory. These will only be visible when
 
 ## Deployment
 
+### GitHub Pages Setup
+1. Go to your repository Settings → Pages
+2. Set Source to "Deploy from a branch"
+3. Set Branch to `gh-pages` and folder to `/ (root)`
+4. Save settings
+
 ### Main Site
 - Push to `main` or `master` branch to deploy to the main site
 - Tag releases with `v*` (e.g., `v1.0.0`) to create versioned deployments
+- Site will be available at `https://yourusername.github.io/`
 
 ### Dev Site
 - Push to `dev` branch to deploy a development version with drafts visible
 - Access dev version at `/dev/` path on your GitHub Pages site
+
+**Note**: The `gh-pages` branch is created automatically after the first successful deployment.
 
 ## GitHub Actions
 

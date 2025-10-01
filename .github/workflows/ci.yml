@@ -21,6 +21,7 @@ jobs:
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
       - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
+      - run: mkdir -p .cache
       - uses: actions/cache@v4
         with:
           key: mkdocs-material-${{ env.cache_id }}
@@ -49,5 +50,6 @@ jobs:
             mike deploy --push --config-file mkdocs.dev.yml dev
           else
             echo "Deploying main branch"
-            mike deploy --push latest
+            mike deploy --push --config-file mkdocs.yml latest main
+            mike set-default --push latest
           fi
