@@ -1,6 +1,4 @@
-# My Blog
-
-A blog built with [mkdocs-material](https://squidfunk.github.io/mkdocs-material/) and deployed using GitHub Actions with [mike](https://github.com/jimporter/mike).
+A static personal built with [mkdocs-material](https://squidfunk.github.io/mkdocs-material/) and deployed using GitHub Actions with [mike](https://github.com/jimporter/mike).
 
 ## Features
 
