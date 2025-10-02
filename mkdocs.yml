@@ -11,6 +11,7 @@ site_url: https://brentp.github.io/
 # Theme
 theme:
   name: material
+  custom_dir: overrides
   palette:
     - scheme: default
       primary: blue
@@ -40,6 +41,7 @@ theme:
     - search.share
     - header.autohide
     - content.code.copy
+    - tags.index
 
 extra:
   generator: false
@@ -47,6 +49,17 @@ extra:
 # Plugins
 plugins:
   - search
+  - blog
+  - tags: 
+      tags_allowed:
+        - genomics
+        - webdev
+        - personal
+        - contracting
+        - rust
+        - nim
+        - python
+        - testing
   - minify:
       minify_html: true
 
@@ -98,7 +111,7 @@ nav:
   - About: index.md
   - Blog:
     - blog/index.md
-    - blog/first-post.md
+  - Tags: tags.md
 
 # Copyright
 copyright: |

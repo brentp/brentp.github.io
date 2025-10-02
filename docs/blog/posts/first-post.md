@@ -2,6 +2,8 @@
 title: First Post
 date: 2024-01-01
 description: Welcome to my first blog post
+tags: [webdev, testing]
+comments: true
 ---
 
 # First Post
