@@ -41,16 +41,20 @@ theme:
     - search.share
     - header.autohide
     - content.code.copy
+    - content.action.edit
+    - content.action.view
     - tags.index
 
 extra:
   generator: false
+  css:
+    - assets/css/custom.css
 
 # Plugins
 plugins:
   - search
   - blog
-  - tags: 
+  - tags:
       tags_allowed:
         - genomics
         - webdev
@@ -81,8 +85,8 @@ markdown_extensions:
   - pymdownx.caret
   - pymdownx.details
   - pymdownx.emoji:
-       emoji_index: !!python/name:material.extensions.emoji.twemoji
-       emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
@@ -110,7 +114,7 @@ markdown_extensions:
 nav:
   - About: index.md
   - Blog:
-    - blog/index.md
+      - blog/index.md
   - Tags: tags.md
 
 # Copyright

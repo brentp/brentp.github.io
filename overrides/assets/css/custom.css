@@ -1,0 +1,174 @@
+/* Custom styles for Brent Pedersen's portfolio */
+
+/* Increase page width usage */
+.md-content__inner {
+    max-width: 1200px !important; /* Increase from default ~900px */
+    margin: 0 auto;
+}
+
+.md-main__inner {
+    max-width: 1400px !important; /* Allow more space for content */
+}
+
+/* Hero section styling */
+.md-typeset h1 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Card grid improvements */
+.grid.cards {
+    gap: 1rem;
+    margin: 2rem 0;
+    align-items: start; /* Ensure all cards align to the top */
+}
+
+.grid.cards .card {
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Make all cards the same height */
+}
+
+/* Ensure card content fills the available space */
+.grid.cards .card > * {
+    flex: 1;
+}
+
+.grid.cards .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+/* GitHub badges styling */
+img[alt*="GitHub stars"], img[alt*="GitHub forks"] {
+    margin: 0.5rem 0.25rem 0 0;
+    vertical-align: middle;
+}
+
+/* Publication statistics cards */
+.grid.cards .card h3 {
+    color: var(--md-primary-fg-color);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Technical expertise icons */
+.grid.cards .card .md-icon {
+    color: var(--md-primary-fg-color);
+    margin-right: 0.5rem;
+}
+
+/* Responsive design */
+@media screen and (max-width: 76.1875em) {
+    .grid.cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .md-typeset h1 {
+        font-size: 2rem;
+    }
+    
+    /* Adjust page width for smaller screens */
+    .md-content__inner {
+        max-width: 100% !important;
+        padding: 0 1rem;
+    }
+    
+    .md-main__inner {
+        max-width: 100% !important;
+    }
+}
+
+/* Medium screens - use more width but not full */
+@media screen and (min-width: 76.1875em) and (max-width: 1200px) {
+    .md-content__inner {
+        max-width: 1000px !important;
+    }
+    
+    .md-main__inner {
+        max-width: 1200px !important;
+    }
+}
+
+/* Dark mode adjustments */
+[data-md-color-scheme="slate"] .grid.cards .card {
+    background-color: var(--md-code-bg-color);
+    border: 1px solid var(--md-default-fg-color--lightest);
+}
+
+/* Link styling */
+.md-typeset a {
+    color: var(--md-primary-fg-color);
+    text-decoration: none;
+}
+
+.md-typeset a:hover {
+    text-decoration: underline;
+}
+
+/* Section spacing */
+.md-typeset h2 {
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--md-primary-fg-color--lightest);
+}
+
+/* Admonition styling for publications */
+.md-typeset .admonition.note {
+    border-left-color: var(--md-primary-fg-color);
+}
+
+.md-typeset .admonition.note .admonition-title {
+    background-color: var(--md-primary-fg-color--lightest);
+    color: var(--md-primary-fg-color);
+}
+
+/* Publication list styling */
+.md-typeset ul li {
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+}
+
+/* Connect section styling */
+.md-typeset h2:last-of-type {
+    margin-top: 3rem;
+}
+
+.md-typeset ul:last-of-type li {
+    margin-bottom: 0.5rem;
+}
+
+/* GitHub stats alignment */
+.grid.cards .card p:last-child {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+/* Hero section specific styling for better alignment */
+.grid.cards .card h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.grid.cards .card h3 .md-icon {
+    margin-right: 0.5rem;
+    flex-shrink: 0;
+}
+
+/* Ensure consistent spacing in hero cards */
+.grid.cards .card hr {
+    margin: 1rem 0;
+}
+
+.grid.cards .card p {
+    margin-bottom: 0;
+}
+
