@@ -2,7 +2,7 @@
 (function() {
   const el = document.getElementById('recommendations-rotator');
   if (!el) return;
-  fetch('recs.txt')
+  fetch('assets/recs.txt')
     .then(function(r) { return r.text(); })
     .then(function(t) {
       const entries = t.split(/^---\s*$/m).map(function(s) { return s.trim(); }).filter(function(s) { return s.length; });

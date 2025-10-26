@@ -1,0 +1,15 @@
+---
+Brent is an extremely talented bioinformatics engineer who I wholeheartedly recommend.
+What sets Brent apart is his first-principles thinking and ability to work at the bare metal level to optimize and debug complex systems. When we brought him in to tackle the most compute-intensive part of our pipeline, he delivered exceptional results—reducing total CPU time by 10X. This optimization drastically cut our compute costs and fundamentally improved our operational efficiency.
+If you're looking for someone who can dive deep into technical challenges and deliver meaningful, measurable impact, Brent is an excellent choice.
+- Juan Medina Cofounder and CTO Isabl. Inc
+
+---
+
+Brent was an absolute pleasure to work with and quickly became core to our team. He improved critical code and delivered huge efficiency gains. Brent had great recommendations for data structures and workflows which he was able to quickly implement. One step of our pipeline originally took nearly 24 hours to run and he got it down to under 1 minute!
+- Aleah Caulin. Peel Therapeutics
+
+---
+
+Brent was instrumental in identifying a performance-critical path in our code and recommending a more efficient data layout. By replacing DataFrames with dictionaries and lists and optimizing our execution logic, we achieved a dramatic reduction in simulation time.
+- Jean-Paul Lansdaal, Founder of CharmTraders
