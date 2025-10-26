@@ -3,11 +3,62 @@ title: Brent Pedersen
 description: Genomics researcher
 ---
 
-I'm a genomics researcher and software developer focused on creating useful, simple, fast and reliable tools for variant analysis and genomic data processing. I use rust/python/cython/nim where suitable.
+I am a genomics researcher and software developer focused on creating useful, simple, fast and reliable tools for variant analysis and genomic data processing. I use rust/python/nim and other programming languages where suitable. I use git, nextflow, AWS, and machine learning as needed for WGS, WES and other sequencing data. I am looking for contract work that is interesting and impactful and where my skills can be best utilized.
 
-**Current Focus**: Developing tools for rapid variant annotation, sample quality control, and genomic data analysis.
+## Work With Me
+
+ I am interested in longer projects where I am more integrated than a contractor, but less commitment (to you) than a staff member. A model I have in mind is *16 weeks* (~1/3rd year) of focused work for $25K commitment. This could be for a pilot study or a focused project or certainly a long-term collaboration. Most universities can support this via vendor contract or even simpler.
+If you have a smaller project or something else in mind, feel free to <a href="mailto:bpederse@gmail.com?subject=Genomics%20Contracting" target="_blank" rel="noopener">contact me</a>.
 
 ---
+
+## Recommendations
+
+<div id="recommendations-rotator" aria-live="polite">Loading recommendations...</div>
+<script>
+(function() {
+  const el = document.getElementById('recommendations-rotator');
+  if (!el) return;
+  fetch('recs.txt')
+    .then(function(r) { return r.text(); })
+    .then(function(t) {
+      const entries = t.split(/^---\s*$/m).map(function(s) { return s.trim(); }).filter(function(s) { return s.length; });
+      if (!entries.length) {
+        el.textContent = 'No recommendations available.';
+        return;
+      }
+      var i = 0;
+      function render() {
+        var lines = entries[i].split('\n').map(function(line) { return line.trim(); }).filter(function(s){ return s.length; });
+        var person = '';
+        if (lines.length && /^-\s*/.test(lines[lines.length - 1])) {
+          person = lines.pop().replace(/^-\s*/, '');
+        }
+        var bodyHtml = lines.join('<br>');
+        el.innerHTML = '<blockquote class="rec-body">' + bodyHtml + '</blockquote>' +
+                       '<div class="rec-person">— <em>' + (person || '') + '</em></div>';
+        var bodyEl = el.querySelector('.rec-body');
+        if (bodyEl) {
+          var cs = window.getComputedStyle(bodyEl);
+          var lh = parseFloat(cs.lineHeight);
+          if (!isNaN(lh) && lh > 0) {
+            bodyEl.style.maxHeight = (lh * 4) + 'px';
+            bodyEl.style.overflowY = 'auto';
+          }
+          bodyEl.scrollTop = 0;
+        }
+      }
+      render();
+      setInterval(function() {
+        i = (i + 1) % entries.length;
+        render();
+      }, 8000);
+    })
+    .catch(function() {
+      el.textContent = 'Failed to load recommendations.';
+    });
+})();
+</script>
 
 ## Key Projects
 
@@ -43,24 +94,9 @@ I'm a genomics researcher and software developer focused on creating useful, sim
 
 ## Technical Expertise
 
-<div class="grid cards" markdown>
+I have extensive experience in developing in [rust](https://www.rust-lang.org/), [python/cython](https://cython.org/) (extension modules and entire software), and [nim](https://nim-lang.org/) for high-performance bioinformatics tools. My expertise includes **genomics**, **variant analysis**, and performance optimization for large-scale genomic data processing.
 
-- :material-language-rust:{ .lg .middle } **Rust**
-  <br> Systems programming for maximum performance
-
-- :material-language-python:{ .lg .middle } **Python/Cython**
-  <br>High-performance Python with C extensions
-
-- <img src="https://nim-lang.org/assets/img/logo.svg" alt="Nim logo" style="height:2rem;vertical-align:middle;margin-right:0.5rem;"> **Nim**
-  <br> Elegant, compiled language for high-performance bioinformatics tools
-
-- :material-dna:{ .lg .middle } **Genomics**
-  <br> Variant analysis, quality control, and annotation
-
-- :material-speedometer:{ .lg .middle } **Performance**
-  <br> Optimizing algorithms and pipelines for large-scale genomic data
-
-</div>
+My work has been in developing [efficient](https://github.com/brentp/mosdepth), [algorithms](https://github.com/brentp/echtvar), largely in [variant filtering](https://github.com/brentp/slivar), and [QC](https://github.com/brentp/somalier)
 
 ---
 
@@ -76,3 +112,4 @@ Check out the [blog section](blog/index.md) for the latest posts and updates on 
 - **Google Scholar**: [Profile](https://scholar.google.com/citations?user=tDf0VkUAAAAJ&hl=en)
 - **Location**: Oregon, USA
 - **Twitter**: [@brent_p](https://twitter.com/brent_p)
+- [**email**](mailto:bpederse@gmail.com)
