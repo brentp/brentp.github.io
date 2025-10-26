@@ -2,12 +2,14 @@
 
 /* Increase page width usage */
 .md-content__inner {
-    max-width: 1200px !important; /* Increase from default ~900px */
+    max-width: 1200px !important;
+    /* Increase from default ~900px */
     margin: 0 auto;
 }
 
 .md-main__inner {
-    max-width: 1400px !important; /* Allow more space for content */
+    max-width: 1400px !important;
+    /* Allow more space for content */
 }
 
 /* Hero section styling */
@@ -22,30 +24,33 @@
 .grid.cards {
     gap: 1rem;
     margin: 2rem 0;
-    align-items: start; /* Ensure all cards align to the top */
+    align-items: start;
+    /* Ensure all cards align to the top */
 }
 
 .grid.cards .card {
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     display: flex;
     flex-direction: column;
-    height: 100%; /* Make all cards the same height */
+    height: 100%;
+    /* Make all cards the same height */
 }
 
 /* Ensure card content fills the available space */
-.grid.cards .card > * {
+.grid.cards .card>* {
     flex: 1;
 }
 
 .grid.cards .card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
 /* GitHub badges styling */
-img[alt*="GitHub stars"], img[alt*="GitHub forks"] {
+img[alt*="GitHub stars"],
+img[alt*="GitHub forks"] {
     margin: 0.5rem 0.25rem 0 0;
     vertical-align: middle;
 }
@@ -68,17 +73,17 @@ img[alt*="GitHub stars"], img[alt*="GitHub forks"] {
     .grid.cards {
         grid-template-columns: 1fr;
     }
-    
+
     .md-typeset h1 {
         font-size: 2rem;
     }
-    
+
     /* Adjust page width for smaller screens */
     .md-content__inner {
         max-width: 100% !important;
         padding: 0 1rem;
     }
-    
+
     .md-main__inner {
         max-width: 100% !important;
     }
@@ -89,7 +94,7 @@ img[alt*="GitHub stars"], img[alt*="GitHub forks"] {
     .md-content__inner {
         max-width: 1000px !important;
     }
-    
+
     .md-main__inner {
         max-width: 1200px !important;
     }
@@ -172,3 +177,25 @@ img[alt*="GitHub stars"], img[alt*="GitHub forks"] {
     margin-bottom: 0;
 }
 
+/* Recommendations rotator */
+#recommendations-rotator {
+    max-width: 900px;
+}
+
+#recommendations-rotator blockquote.rec-body {
+    line-height: 1.5;
+    /* set explicit line height */
+    max-height: calc(1.5em * 4);
+    /* 4 lines visible */
+    /* fixed visual height based on 4 lines */
+    overflow-y: auto;
+    /* vertical scroll as needed */
+    margin: 0 0 0.5rem 0;
+    padding-right: 0.5rem;
+    /* space for scrollbar */
+}
+
+#recommendations-rotator .rec-person {
+    font-size: 0.95rem;
+    color: var(--md-default-fg-color);
+}
