@@ -19,7 +19,7 @@ If you have a smaller project or something else in mind, feel free to <a href="m
 (function() {
   const el = document.getElementById('recommendations-rotator');
   if (!el) return;
-  fetch('recs.txt')
+  fetch('assets/recs.txt')
     .then(function(r) { return r.text(); })
     .then(function(t) {
       const entries = t.split(/^---\s*$/m).map(function(s) { return s.trim(); }).filter(function(s) { return s.length; });
