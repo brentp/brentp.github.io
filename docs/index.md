@@ -3,12 +3,12 @@ title: Brent Pedersen
 description: Genomics researcher
 ---
 
-I am a genomics researcher and software developer focused on creating useful, simple, fast and reliable tools for variant analysis and genomic data processing. I use rust/python/nim and other programming languages where suitable. I use git, nextflow, AWS, and machine learning as needed for WGS, WES and other sequencing data. I am looking for contract work that is interesting and impactful and where my skills can be best utilized.
+I am a genomics researcher and software developer focused on creating useful, simple, fast and reliable tools for variant analysis and genomic data processing. I am looking for contract work that is interesting and impactful and where my skills can be best utilized.
 
 ## Work With Me
 
- I am interested in longer projects where I am more integrated than a contractor, but less commitment (to you) than a staff member. A model I have in mind is *16 weeks* (~1/3rd year) of focused work for $25K commitment. This could be for a pilot study or a focused project or certainly a long-term collaboration. Most universities can support this via vendor contract or even simpler.
-If you have a smaller project or something else in mind, feel free to <a href="mailto:bpederse@gmail.com?subject=Genomics%20Contracting" target="_blank" rel="noopener">contact me</a>.
+ I am interested in substantial projects, but with less commitment (to you) than a staff member. A model I have in mind is *16 weeks* (~1/3rd year) of focused work for *$25K* commitment. This could be an alternative to committing to a staff bioinformatician. It could be for a pilot study or a focused project or certainly a long-term collaboration. Most universities can support this via vendor contract or even simpler.
+This is an idea, if you have another mode of work or a project in mind, feel free to <a href="mailto:bpederse@gmail.com?subject=Genomics%20Contracting" target="_blank" rel="noopener">contact me</a>.
 
 ---
 
@@ -52,7 +52,7 @@ If you have a smaller project or something else in mind, feel free to <a href="m
       setInterval(function() {
         i = (i + 1) % entries.length;
         render();
-      }, 8000);
+      }, 6000);
     })
     .catch(function() {
       el.textContent = 'Failed to load recommendations.';
@@ -94,9 +94,9 @@ If you have a smaller project or something else in mind, feel free to <a href="m
 
 ## Technical Expertise
 
-I have extensive experience in developing in [rust](https://www.rust-lang.org/), [python/cython](https://cython.org/) (extension modules and entire software), and [nim](https://nim-lang.org/) for high-performance bioinformatics tools. My expertise includes **genomics**, **variant analysis**, and performance optimization for large-scale genomic data processing.
+I have extensive experience in developing in [rust](https://www.rust-lang.org/), [python/cython](https://cython.org/) (extension modules and entire software), [nim](https://nim-lang.org/) and [go](https://golang.org/) for high-performance bioinformatics tools. My expertise includes **genomics**, **variant analysis**, and performance optimization for large-scale genomic data processing.
 
-My work has been in developing [efficient](https://github.com/brentp/mosdepth), [algorithms](https://github.com/brentp/echtvar), largely in [variant filtering](https://github.com/brentp/slivar), and [QC](https://github.com/brentp/somalier)
+My work has been in developing [efficient](https://github.com/brentp/mosdepth) [algorithms](https://github.com/brentp/echtvar), largely in [variant filtering](https://github.com/brentp/slivar), [annotation](https://github.com/brentp/vcfanno), and [QC](https://github.com/brentp/somalier). I like to add scripting capabilities to command-line tools to give maximum flexibility.
 
 ---
 
