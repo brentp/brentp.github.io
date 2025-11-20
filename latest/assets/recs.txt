@@ -13,3 +13,10 @@ Brent was an absolute pleasure to work with and quickly became core to our team.
 
 Brent was instrumental in identifying a performance-critical path in our code and recommending a more efficient data layout. By replacing DataFrames with dictionaries and lists and optimizing our execution logic, we achieved a dramatic reduction in simulation time.
 - Jean-Paul Lansdaal, Founder of CharmTraders
+
+---
+
+I have had the great fortune of collaborating with Brent since roughly 2009. He is one of the most creative, intelligent, and experienced developers and scientists I have worked with. Together, we have designed and created dozens of software tools that are now widely-used in genomics. He has an incredible breadth and depth of knowledge and his capacity for developing high-quality software and algorithms is incredible. I couldn't recommend a better developer than Brent.
+- Aaron Quinlan, Professor and Chair of Human Genetics University of Utah
+
+
