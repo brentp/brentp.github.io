@@ -118,10 +118,50 @@ img[alt*="GitHub forks"] {
 
 /* Section spacing */
 .md-typeset h2 {
-    margin-top: 3rem;
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.5rem;
+    margin-top: 2.25rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.35rem;
     border-bottom: 2px solid var(--md-primary-fg-color--lightest);
+}
+
+/* Discuss button styling */
+.md-typeset .discuss-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.6rem 1.35rem;
+    border-radius: 999px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--md-primary-bg-color);
+    background-color: var(--md-primary-fg-color);
+    background: linear-gradient(135deg, var(--md-primary-fg-color), color-mix(in srgb, var(--md-primary-fg-color) 65%, #5ee7df 35%));
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.06);
+    border: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.25s ease;
+}
+
+.md-typeset .discuss-btn::after {
+    content: '→';
+    font-size: 0.95em;
+    transition: transform 0.2s ease;
+}
+
+.md-typeset .discuss-btn:hover,
+.md-typeset .discuss-btn:focus-visible {
+    transform: translateY(-1px) scale(1.01);
+    box-shadow: 0 16px 28px rgba(0, 0, 0, 0.16), 0 4px 10px rgba(0, 0, 0, 0.08);
+    filter: brightness(1.02);
+}
+
+.md-typeset .discuss-btn:hover::after,
+.md-typeset .discuss-btn:focus-visible::after {
+    transform: translateX(3px);
+}
+
+.md-typeset .discuss-btn:focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--md-primary-fg-color) 60%, #5ee7df 40%);
+    outline-offset: 3px;
 }
 
 /* Admonition styling for publications */
