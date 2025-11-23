@@ -47,8 +47,9 @@ theme:
 
 extra:
   generator: false
-  css:
-    - assets/css/custom.css
+
+extra_css:
+  - assets/css/custom.css
 
 # Plugins
 plugins:

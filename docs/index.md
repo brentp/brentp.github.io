@@ -7,7 +7,7 @@ I am a genomics researcher and software developer focused on creating useful, si
 
 ## Work With Me
 
- I am interested in substantial projects, but with less commitment (to you) than a staff member. A model I have in mind is *16 weeks* (~1/3rd year) of focused work for *$25K* commitment. This could be an alternative to committing to a staff bioinformatician. It could be for a pilot study or a focused project or certainly a long-term collaboration. Most universities can support this via vendor contract or even simpler.
+I am interested in substantial projects, but with less commitment (to you) than a staff member. A model I have in mind is _16 weeks_ (~1/3rd year) of focused work for _$25K_ commitment. This could be an alternative to committing to a staff bioinformatician. It could be for a pilot study or a focused project or certainly a long-term collaboration. Most universities can support this via vendor contract or even simpler.
 This is an idea, if you have another mode of work or a project in mind, feel free to <a href="mailto:bpederse@gmail.com?subject=Genomics%20Contracting" target="_blank" rel="noopener">contact me</a>.
 
 ---
@@ -19,40 +19,190 @@ This is an idea, if you have another mode of work or a project in mind, feel fre
 (function() {
   const el = document.getElementById('recommendations-rotator');
   if (!el) return;
+  
+  var entries = [];
+  var currentIndex = 0;
+  var isPaused = false;
+  var intervalId = null;
+  var contentEl, indicatorsEl, prevBtn, nextBtn, pauseBtn;
+  
+  // SVG icons for buttons
+  var chevronLeftSVG = '<svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>';
+  var chevronRightSVG = '<svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>';
+  var pauseSVG = '<svg viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>';
+  var playSVG = '<svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>';
+  
+  function render() {
+    if (!entries.length || !contentEl) return;
+    
+    var lines = entries[currentIndex].split('\n').map(function(line) { return line.trim(); }).filter(function(s){ return s.length; });
+    var person = '';
+    if (lines.length && /^-\s*/.test(lines[lines.length - 1])) {
+      person = lines.pop().replace(/^-\s*/, '');
+    }
+    var bodyHtml = lines.join('<br>');
+    contentEl.innerHTML = '<blockquote class="rec-body">' + bodyHtml + '</blockquote>' +
+                          '<div class="rec-person">— <em>' + (person || '') + '</em></div>';
+    
+    var bodyEl = contentEl.querySelector('.rec-body');
+    if (bodyEl) {
+      bodyEl.scrollTop = 0;
+    }
+    
+    // Update indicators
+    updateIndicators();
+  }
+  
+  function updateIndicators() {
+    if (!indicatorsEl) return;
+    var indicators = indicatorsEl.querySelectorAll('.rec-indicator');
+    indicators.forEach(function(indicator, idx) {
+      if (idx === currentIndex) {
+        indicator.classList.add('active');
+        indicator.setAttribute('aria-current', 'true');
+      } else {
+        indicator.classList.remove('active');
+        indicator.removeAttribute('aria-current');
+      }
+    });
+  }
+  
+  function goToIndex(newIndex) {
+    if (newIndex < 0 || newIndex >= entries.length || newIndex === currentIndex) return;
+    currentIndex = newIndex;
+    render();
+    resetInterval();
+  }
+  
+  function goNext() {
+    currentIndex = (currentIndex + 1) % entries.length;
+    render();
+    resetInterval();
+  }
+  
+  function goPrev() {
+    currentIndex = (currentIndex - 1 + entries.length) % entries.length;
+    render();
+    resetInterval();
+  }
+  
+  function togglePause() {
+    isPaused = !isPaused;
+    if (pauseBtn) {
+      var iconEl = pauseBtn.querySelector('.rec-btn-icon');
+      if (iconEl) {
+        iconEl.innerHTML = isPaused ? playSVG : pauseSVG;
+      }
+      pauseBtn.setAttribute('aria-label', isPaused ? 'Play' : 'Pause');
+      pauseBtn.setAttribute('title', isPaused ? 'Play' : 'Pause');
+    }
+    
+    if (isPaused) {
+      clearInterval(intervalId);
+      intervalId = null;
+    } else {
+      startInterval();
+    }
+  }
+  
+  function startInterval() {
+    if (intervalId) clearInterval(intervalId);
+    intervalId = setInterval(function() {
+      if (!isPaused) {
+        goNext();
+      }
+    }, 6000);
+  }
+  
+  function resetInterval() {
+    if (!isPaused) {
+      startInterval();
+    }
+  }
+  
+  function createUI() {
+    el.classList.add('recommendations-ready');
+    el.innerHTML = '';
+    
+    // Create content container
+    contentEl = document.createElement('div');
+    contentEl.className = 'rec-content';
+    el.appendChild(contentEl);
+    
+    // Create footer with controls and indicators
+    var footer = document.createElement('div');
+    footer.className = 'rec-footer';
+    
+    // Create controls
+    var controls = document.createElement('div');
+    controls.className = 'rec-controls';
+    
+    prevBtn = document.createElement('button');
+    prevBtn.className = 'rec-btn';
+    prevBtn.setAttribute('aria-label', 'Previous recommendation');
+    prevBtn.setAttribute('title', 'Previous');
+    prevBtn.innerHTML = '<span class="rec-btn-icon rec-btn-icon--chevron">' + chevronLeftSVG + '</span>';
+    prevBtn.onclick = goPrev;
+    
+    pauseBtn = document.createElement('button');
+    pauseBtn.className = 'rec-btn';
+    pauseBtn.setAttribute('aria-label', 'Pause');
+    pauseBtn.setAttribute('title', 'Pause');
+    pauseBtn.innerHTML = '<span class="rec-btn-icon rec-btn-icon--toggle">' + pauseSVG + '</span>';
+    pauseBtn.onclick = togglePause;
+    
+    nextBtn = document.createElement('button');
+    nextBtn.className = 'rec-btn';
+    nextBtn.setAttribute('aria-label', 'Next recommendation');
+    nextBtn.setAttribute('title', 'Next');
+    nextBtn.innerHTML = '<span class="rec-btn-icon rec-btn-icon--chevron">' + chevronRightSVG + '</span>';
+    nextBtn.onclick = goNext;
+    
+    controls.appendChild(prevBtn);
+    controls.appendChild(pauseBtn);
+    controls.appendChild(nextBtn);
+    
+    // Create indicators
+    indicatorsEl = document.createElement('div');
+    indicatorsEl.className = 'rec-indicators';
+    if (entries.length === 1) {
+      indicatorsEl.classList.add('rec-indicators--single');
+    }
+    
+    entries.forEach(function(_, idx) {
+      var indicator = document.createElement('button');
+      indicator.className = 'rec-indicator';
+      indicator.setAttribute('aria-label', 'Go to recommendation ' + (idx + 1));
+      indicator.setAttribute('title', 'Recommendation ' + (idx + 1));
+      indicator.textContent = (idx + 1).toString();
+      indicator.onclick = function() {
+        goToIndex(idx);
+      };
+      if (idx === currentIndex) {
+        indicator.classList.add('active');
+        indicator.setAttribute('aria-current', 'true');
+      }
+      indicatorsEl.appendChild(indicator);
+    });
+    
+    footer.appendChild(controls);
+    footer.appendChild(indicatorsEl);
+    el.appendChild(footer);
+    
+    // Render initial content
+    render();
+    startInterval();
+  }
+  
   fetch('assets/recs.txt')
     .then(function(r) { return r.text(); })
     .then(function(t) {
-      const entries = t.split(/^---\s*$/m).map(function(s) { return s.trim(); }).filter(function(s) { return s.length; });
+      entries = t.split(/^---\s*$/m).map(function(s) { return s.trim(); }).filter(function(s) { return s.length; });
       if (!entries.length) {
         el.textContent = 'No recommendations available.';
         return;
       }
-      var i = 0;
-      function render() {
-        var lines = entries[i].split('\n').map(function(line) { return line.trim(); }).filter(function(s){ return s.length; });
-        var person = '';
-        if (lines.length && /^-\s*/.test(lines[lines.length - 1])) {
-          person = lines.pop().replace(/^-\s*/, '');
-        }
-        var bodyHtml = lines.join('<br>');
-        el.innerHTML = '<blockquote class="rec-body">' + bodyHtml + '</blockquote>' +
-                       '<div class="rec-person">— <em>' + (person || '') + '</em></div>';
-        var bodyEl = el.querySelector('.rec-body');
-        if (bodyEl) {
-          var cs = window.getComputedStyle(bodyEl);
-          var lh = parseFloat(cs.lineHeight);
-          if (!isNaN(lh) && lh > 0) {
-            bodyEl.style.maxHeight = (lh * 4) + 'px';
-            bodyEl.style.overflowY = 'auto';
-          }
-          bodyEl.scrollTop = 0;
-        }
-      }
-      render();
-      setInterval(function() {
-        i = (i + 1) % entries.length;
-        render();
-      }, 6000);
+      createUI();
     })
     .catch(function() {
       el.textContent = 'Failed to load recommendations.';
