@@ -3,12 +3,20 @@ title: Brent Pedersen
 description: Genomics researcher
 ---
 
-I am a genomics researcher and software developer focused on creating useful, simple, fast and reliable tools for variant analysis and genomic data processing. I am looking for contract work that is interesting and impactful and where my skills can be best utilized.
+I am a genomics researcher and software developer focused on creating useful, simple, fast and reliable tools for variant analysis and genomic data processing. I am looking for collaborative contract work that is interesting and impactful and where my skills can be best utilized.
 
 ## Work With Me
 
-I am interested in substantial projects, but with less commitment (to you) than a staff member. A model I have in mind is _16 weeks_ (~1/3rd year) of focused work for _$25K_ commitment. This could be an alternative to committing to a staff bioinformatician. It could be for a pilot study or a focused project or certainly a long-term collaboration. Most universities can support this via vendor contract or even simpler.
-This is an idea, if you have another mode of work or a project in mind, feel free to <a href="mailto:bpederse@gmail.com?subject=Genomics%20Contracting" target="_blank" rel="noopener">contact me</a>.
+- Are you struggling with quality control problems in your genomic studies?
+- Is your variant processingn pipeline for clinical pipelines slow or incomplete?
+- Do you need help with custom visualizations, a well-defined genomics tools or analyses?
+
+I am interested in substantial projects, but with less commitment (to you) than a staff member. **My preferred model is _16 weeks_ (~1/3rd year) of focused work of at least 1 day per week for a _$25K_ commitment**. I intend to have 2-3 project at any given time.
+
+This model is an alternative to committing to a staff bioinformatician.
+Regardless of your preferred model, if you have a project in mind, please <a href="mailto:bpederse@gmail.com?subject=Genomics%20Contracting" target="_blank" rel="noopener">contact me</a>.
+
+[Discuss A Project](mailto:bpederse@gmail.com?subject=Project%20Discussion){: .md-button .md-button--primary .discuss-btn target="\_blank" rel="noopener" }
 
 ---
 
@@ -211,6 +219,8 @@ This is an idea, if you have another mode of work or a project in mind, feel fre
 </script>
 
 ## Key Projects
+
+Here are some of my projects, each with an open-source repository that I still maintain and a publication describing it's use.
 
 <div class="grid cards" markdown>
 
