@@ -11,10 +11,10 @@ I am a genomics researcher and software developer focused on creating useful, si
 - Is your variant processingn pipeline for clinical pipelines slow or incomplete?
 - Do you need help with custom visualizations, a well-defined genomics tools or analyses?
 
-I am interested in substantial projects, but with less commitment (to you) than a staff member. **My preferred model is _16 weeks_ (~1/3rd year) of focused work of at least 1 day per week for a _$25K_ commitment**. I intend to have 2-3 project at any given time.
+I am interested in substantial projects, but with less commitment (to you) than a staff member. **My preferred model is _16 weeks_ (~1/3rd year) of focused work of at least 1 day per week for a _$25K_ commitment**. I intend to have 2-3 projects at any given time.
 
 This model is an alternative to committing to a staff bioinformatician.
-Regardless of your preferred model, if you have a project in mind, please <a href="mailto:bpederse@gmail.com?subject=Genomics%20Contracting" target="_blank" rel="noopener">contact me</a>.
+I am also open to projects that match my expertise and interest, if you have questions or a project, please <a href="mailto:bpederse@gmail.com?subject=Genomics%20Contracting" target="_blank" rel="noopener">contact me</a>.
 
 [Discuss A Project](mailto:bpederse@gmail.com?subject=Project%20Discussion){: .md-button .md-button--primary .discuss-btn target="\_blank" rel="noopener" }
 
