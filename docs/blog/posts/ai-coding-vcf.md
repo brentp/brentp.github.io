@@ -8,7 +8,7 @@ comments: true
 
 This post is mostly about AI coding. Jump to the end if you're more interested in genomics libraries.
 
-# AI Coding
+## AI Coding
 
 I use AI coding tools quite a bit, but over the last couple of weeks without writing a line of code (I may have edited a README), I made
 
@@ -59,14 +59,14 @@ And what will be my place in it. I don't have any deep thoughts here, just notic
 
 Below I'll write a bit about the actual libraries.
 
-# HTSVCF
+## HTSVCF
 
 Starting from the initial V8 Javascript::rust example project, I built, with opencode and LLMs, a library for
 [rust-htslib](https://github.com/rust-bio/rust-htslib) that exposes most attributes 
 that are available on a variant in [VCF format](https://pmc.ncbi.nlm.nih.gov/articles/PMC3137218/) to Javascript expressions.
 Concurrently, it built a [library](https://www.npmjs.com/package/htsvcf) to read and write VCF files from Javascript (via bun or node).
 
-## rust
+### rust
 
 I am quite pleased with the syntax of the libraries. For the rust library that facilitates user expressions, the usage looks like this:
 
@@ -109,7 +109,7 @@ so we can handle other return times like i32, f32, f64, and (with some performan
 There are other examples in the rust docs [here](https://brentp.github.io/htsvcf/latest/htsvcf/index.html)
 
 
-## Javascript
+### Javascript
 
 The Javascript library is available from npm (`bun install -g htsvcf`). And usage looks like:
 
