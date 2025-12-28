@@ -16,6 +16,8 @@ I use AI coding tools quite a bit, but over the last couple of weeks without wri
 
 2. a javascript library for reading, writing VCF/BCF and modifying variants: https://www.npmjs.com/package/htsvcf
 
+Both of those use [v8](https://v8.dev) as the javascript engine.
+
 I mostly used [opencode](https://opencode.ai) and either GPT-5.2 or Claude Opus 4.5 using my [free github credits from having a "popular" open-source project](https://docs.github.com/en/copilot/concepts/billing/individual-plans#github-copilot-pro) (but I do have
 a \$20/month Codex sub, a \$20 Cursor sub, and a [$3/month GLM](https://z.ai/subscribe) sub). This was not possible prior to these models (and the progression of CLI coding tools).
 Opus 4.5 is very good; like it's different. And faster than GPT-5.2.
