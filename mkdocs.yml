@@ -65,6 +65,12 @@ plugins:
         - nim
         - python
         - testing
+        - ai
+        - llms
+        - vcf
+        - javascript
+        - rust  
+        - coding
   - minify:
       minify_html: true
 
