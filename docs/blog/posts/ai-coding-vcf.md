@@ -1,16 +1,16 @@
 ---
 title: AI Coding
-date: 2025-12-29
+date: 2025-12-30
 description: Writing real software with AI coding tools
 tags: [llms, ai, coding, vcf, rust, javascript]
 comments: true
 ---
 
-This post is mostly about AI coding. Jump to the end if you're more interested in genomics libraries.
+This post is mostly about [AI coding](#ai-coding); jump to the [HTSVCF](#htsvcf) section if you're more interested in genomics libraries.
 
 ## AI Coding
 
-I use AI coding tools quite a bit, but over the last couple of weeks without writing a line of code (I may have edited a README), I made
+I use AI coding tools quite a bit, but over the last couple of weeks without writing a line of code (I may have edited a README), I built
 
 1. a rust package to easily apply javascript expressions to a genomic variant: https://brentp.github.io/htsvcf/latest/htsvcf/
 
@@ -18,17 +18,17 @@ I use AI coding tools quite a bit, but over the last couple of weeks without wri
 
 Both of those use [v8](https://v8.dev) as the javascript engine.
 
-I mostly used [opencode](https://opencode.ai) and either GPT-5.2 or Claude Opus 4.5 using my [free github credits from having a "popular" open-source project](https://docs.github.com/en/copilot/concepts/billing/individual-plans#github-copilot-pro) (but I do have
+I mostly used [opencode](https://opencode.ai) and either GPT-5.2 or Claude Opus 4.5 using [free github credits from having a "popular" open-source project](https://docs.github.com/en/copilot/concepts/billing/individual-plans#github-copilot-pro) (but I do have
 a \$20/month Codex sub, a \$20 Cursor sub, and a [$3/month GLM](https://z.ai/subscribe) sub). This was not possible prior to these models (and the progression of CLI coding tools).
-Opus 4.5 is very good; like it's different. And faster than GPT-5.2.
-Or previously, a project even smaller than this would at least require so much intervention that it would have taken much longer than it did and therefore have been infeasible
+Opus 4.5 is very good; like it's different and faster than GPT-5.2.
+Previously, a project even smaller than this would at least require so much intervention that it would have taken much longer than it did and therefore have been infeasible
 as a side project/experiment. And, as a project grew, the complexity would bring down the efficacy of using LLMs; that didn't
 happen here. It's still a small project, but it's substantial and I do notice a sea-change. 
-I had never published an NPM package prior to this and now have one that's automatically published via github action to be available on
+I had never published an NPM package prior to this and now have one that's automatically published via Github Action to be available on
 linux x64 and arm along with OSX (can also support whatever [NAPI](https://napi.rs/) supports). The models generally made code that I was
 happy with or that was easily adjusted with a single prompt.
 
-This was not a single "vibe-code", but rather on the order of 50 different individual prompts. I would decide a feature:
+This was not a single "vibe-code", but rather on the order of 50 focused prompts. I would decide a feature:
 "Allow setting INFO fields in VCF" or "support extracting genotypes and return as `{ alleles: [0, 1], phase: [false]}` for `0/1`"
 and then use `Plan` mode in opencode and then iterate on it and even ask it to find any holes in the plan.
 Once the plan was made, I'd let it go Brrrr in `Build` mode and sometimes check in, scroll-back through the output and occasionally
@@ -46,16 +46,16 @@ review all of the intermediate output.
 
 ## The Changing AI Coding Experience
 
-This library that I wrote/managed the writing of is based on something I wanted to do for a long time. I've been embedding scripting interfaces into genomics tools  
+The libraries that I wrote/managed the writing of are based on something I wanted to do for a long time. I've been embedding scripting interfaces into genomics tools
 [since 2016](https://link.springer.com/article/10.1186/s13059-016-0973-5) and since then have found it quite useful. I prefer 
 Javascript syntax but it has always been easier to embed lua and still have good performance.
 I had an old `rust` [repo](https://github.com/brentp/help-repositories/tree/976b00c5c4b6d2c023ed92b585cc5b38f0207320)
-where I had made a small example and tried to get help to understand why my minimal rust program with V8 scripting was leaking memory. I was not
-able to resolve that. In early december, I asked GPT 5.2 to fix the leak and make sure to update to latest v8 crate. It did, in one shot. And we went from 
+with a small example to attempt to get help to understand why my minimal rust program with V8 scripting was leaking memory. I was not
+able to resolve that. In early December, I asked GPT 5.2 to fix the leak and make sure to update to latest v8 crate. It did, in one shot. And we went from
 there. What was striking to me was the rate of change in improvement. I had the sense previously that things were plateauing--the models
-were getting better but it wasn't changing that much. This felt very different. I was continually 1, 2, or 3-shotting substantial features with 
+were getting better but it wasn't changing my day-to-day much. This felt different. I was continually 1, 2, or 3-shotting substantial features with 
 tests and documentation. I think writing a wrapper library is probably a nice use-case for the LLMs as they currently are, but the entire experience
-was easy. I guess there's a realization that this will continue to improve in months, not years and that what I offer now is taste and high-level guidance.
+was easy. I guess there's a realization that this will continue to improve in months, not years and that what I offer now in the coding process is taste and high-level guidance.
 I am excited about what I can build next. And also wondering what software engineering/programming will look like.
 And what will be my place in it. I don't have any deep thoughts here, just noticing this new reality encroaching.
 
@@ -105,8 +105,8 @@ and the expression calling it is simply:
 eval.eval::<bool>("passes(variant)")
 ```
 
-so we can handle other return times like i32, f32, f64, and (with some performance consequences) objects that serde::Deserialize can understand.
-`variant` is injected into the context for each variant (record) in the VCF file with `set_record`.
+so we can handle other return types like `i32`, `f32`, `f64`, `String` and (with some performance consequences) objects that serde::Deserialize can understand.
+`variant` is injected into the context for each variant (record) in the VCF file with `set_record`. This gives access to the underlying rust struct so that the original can be accessed and modified.
 
 There are other examples in the rust docs [here](https://brentp.github.io/htsvcf/latest/htsvcf/index.html)
 
