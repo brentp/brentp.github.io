@@ -12,7 +12,7 @@ comments: true
 For AI in genomics as it currently stands, there's an aspect I haven't
 seen mentioned that has been on my mind. In short, it's easier to provide
 more complex, powerful, and complete functionality to users without them being overwhelmed
-simply because they can use an LLM. And that a way to expose more functionality
+now that they can use an LLM. And that a way to expose more functionality
 is to provide a scripting interface to a command-line tool or low-level
 library. We can drop the docs into a [custom GPT](https://help.openai.com/en/articles/8554397-creating-and-editing-gpts) or a [SKILL.md](https://www.gitbook.com/blog/skill-md) and the user can use the full power by writing plain-text
 prompts. 
